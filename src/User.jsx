@@ -1,26 +1,21 @@
-import React from "react";
+import { React, useState } from "react";
 // import ReactDOM from "react-dom";
 
-function clicked() {
-  let uname = document.getElementById("textname");
+let count = 0;
+const User = () => {
+  const state = useState();
+  const [count, setCount] = useState(0);
 
-  if (uname.value === "") {
-    alert("Please enter username");
-  } else {
-    alert(`Welcome back ${uname.value}!!`);
-  }
-  return;
-}
-function User() {
+  const IncNum = () => {
+    setCount(count + 1);
+  };
+
   return (
     <>
-      <h1>Hello User</h1>
-      <label>Enter Your Name Here:</label>
-      <textarea placeholder="Enter your name Here" id="textname"></textarea>
-
-      <button onClick={clicked}>CLick Here</button>
+      <h1>Count {count}</h1>
+      <button onClick={IncNum}>CLick Here</button>
     </>
   );
-}
+};
 
 export default User;
