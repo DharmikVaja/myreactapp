@@ -1,19 +1,17 @@
-import { React, useState } from "react";
+import { React, useRef, useState } from "react";
 // import ReactDOM from "react-dom";
 
-let count = 0;
 const User = () => {
-  const state = useState();
-  const [count, setCount] = useState(0);
-
-  const IncNum = () => {
-    setCount(count + 1);
-  };
+  let inputRef = useRef(null);
+  function handleInput() {
+    console.warn("clicked");
+  }
 
   return (
     <>
-      <h1>Count {count}</h1>
-      <button onClick={IncNum}>CLick Here</button>
+      <h1>useRef Use</h1>
+      <input type="text" />
+      <button onClick={handleInput}>Handle Input</button>
     </>
   );
 };
