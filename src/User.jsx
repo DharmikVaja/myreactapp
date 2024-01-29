@@ -1,19 +1,20 @@
 import { React, useRef, useState } from "react";
 // import ReactDOM from "react-dom";
 
-const User = () => {
-  let inputRef = useRef(null);
-  function handleInput() {
-    console.warn("clicked");
+function User() {
+  const [Data, setData] = useState();
+  function getData(ip) {
+    console.warn(ip.target.value);
+    setData(ip.target.value);
   }
 
   return (
     <>
-      <h1>useRef Use</h1>
-      <input type="text" />
-      <button onClick={handleInput}>Handle Input</button>
+      <div className="inputC">
+        <h2>{Data}</h2>
+        <input type="text" onChange={getData}></input>
+      </div>
     </>
   );
-};
-
+}
 export default User;

@@ -1,13 +1,15 @@
 import "./App.css";
-import User from "./User.jsx";
-import React from "react";
-
+import React, { useEffect, useState } from "react";
+// import "./component/form.css";
+// import Form from "./component/Form";
 // import Navbar from "./Navbar.js";
+// import ClearUp from "./component/ClearUp";
+import CompA from "./component/useContext.js/CompA";
 
 function App() {
   return (
     <>
-      <User />
+      <CompA />
     </>
   );
 }
