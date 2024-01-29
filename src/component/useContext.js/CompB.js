@@ -1,12 +1,12 @@
 import React, { useContext } from "react";
-import { userContext } from "../../App";
+import { UserContext } from "../../App";
 
-const CompB = (props) => {
-  const uname = useContext(userContext);
+const CompB = () => {
+  const uname = useContext(UserContext);
   console.log(uname);
   return (
     <div>
-      <h1>Hello World from CompB</h1>
+      {/* <h1>Hello World from CompB</h1> */}
     </div>
   );
 };

@@ -112,7 +112,31 @@ const ClearUp = () => {
     </>
   );
 };
-***************************
+************useRef***************
+const Ref = () => {
+  const [myData, setMyData] = useState("");
+  //   const [count, setCount] = useState("");
+  const renderTime = useRef(0);
+  console.log(renderTime.current);
+
+  useEffect(() => {
+    renderTime.current = renderTime.current + 1;
+  });
+
+  return (
+    <div>
+      <h1> Type Something... </h1>
+      <input
+        type="text"
+        value={myData}
+        onChange={(e) => setMyData(e.target.value)}
+      />
+      <p>Number of Times render:{renderTime.current}</p>
+
+    </div>
+  );
+};
+************
 
 **Toggle Button
 const [status, setStatus] = React.useState(true);
@@ -166,3 +190,73 @@ Jya Ref/ DOM use thai e component ne uncontrolled component kevai
 
 **HOC 
 
+************************userContext***************************
+import CompC from "./component/useContext.js/CompC";
+import {createContext} from "./component/useContext";
+export const UserContext = createContext();
+
+function App() {
+  return (
+    <>
+      <UserContext.Provider>
+        <CompC />
+      </UserContext.Provider>
+    </>
+  );
+}
+***********************
+export const FirstName = createContext();
+
+function App() {
+  return (
+    <>
+      <FirstName.Provider value={"Dharmik"}>
+      <LastName.Provider value={"Vaja"}>
+        <CompC />
+      </LastName.Provider>
+      </FirstName.Provider>
+    </>
+  );
+}
+****CompC
+import { FirstName } from "../../App";
+
+const CompC = () => {
+  return (
+    <div>
+      <FirstName.Consumer>    // consumer only wants a function within it
+        {/* Hello World from CompC */}
+        {(fname) => {
+          return <h1>my name is {fname}</h1>;
+        }}
+      </FirstName.Consumer>
+    </div>
+  );
+};
+****************Callback hell*******************
+<FirstName.Consumer>
+        {(fname) => {
+          return (
+            <LastName.Consumer>
+              {(lname) => {
+                return (
+                  <h1>
+                    My full name is {fname} {lname}
+                  </h1>
+                );
+              }}
+            </LastName.Consumer>
+          );
+        }}
+</FirstName.Consumer>  
+
+*********for overcoming Consumer hell problem, use useContext*******
+const CompC = () => {
+  const fname = useContext(FirstName);
+  const lname = useContext(LastName);
+  return (
+      <h1>
+        My full name is {fname} {lname}
+      </h1>
+  );
+};

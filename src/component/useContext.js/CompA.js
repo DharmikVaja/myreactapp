@@ -4,7 +4,7 @@ import CompB from "./CompB";
 const CompA = () => {
   return (
     <div>
-      <h1>This is CompA</h1>
+      {/* <h1>This is CompA</h1> */}
       <CompB />
     </div>
   );
