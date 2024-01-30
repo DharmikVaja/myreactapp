@@ -10,12 +10,13 @@ import React, { useEffect, useState, useRef, createContext } from "react";
 // export const UserContext = createContext();
 // export const FirstName = createContext();
 // export const LastName = createContext();
-import Ref from "./component/useRef/Ref";
+// import Ref from "./component/useRef/Ref";
+import FormComp from "./component/useForm/FormComp";
 
 function App() {
   return (
     <>
-      <Ref />
+      <FormComp />
     </>
   );
 }

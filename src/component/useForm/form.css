@@ -1,0 +1,13 @@
+.form-group {
+  box-sizing: border-box;
+  border: 1-x solid black;
+  box-shadow: 0;
+  box-sizing: content-box;
+  background-color: lightsteelblue;
+}
+.error {
+  color: red;
+  /* type: required;
+  value: "The field is required"; */
+}
+ 
