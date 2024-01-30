@@ -186,6 +186,48 @@ const User = () => {
 
 ** useMemo - unwanted calls ne save karva.  when you have expensive computations that need to be memoized. System's performance increses
 
+******************************
+const MemoComp = () => {
+  const [counterOne, setCounterOne] = useState(0);
+  const [counterTwo, setCounterTwo] = useState(0);
+
+  const incrOne = () => {
+    setCounterOne(counterOne + 1);
+  };
+  const incrTwo = () => {
+    setCounterTwo(counterTwo + 2);
+  };
+
+  const isEven = useMemo(() => {
+    let i = 0;
+    while (i < 2000000000) i++;
+    return counterOne % 2 === 0;
+  }, [counterOne]);
+
+  useEffect(() => {
+    console.log("One Incremented!!");
+  }, [counterOne]);
+  useEffect(() => {
+    console.log("Two Incremented!!");
+  }, [counterTwo]);
+
+  return (
+    <div>
+      <div>
+        <button onClick={incrOne}>CLick - {counterOne}</button>
+        <span>{isEven ? "even" : "odd"}</span>
+      </div>
+      <div>
+        <button onClick={incrTwo}>CLick - {counterTwo}</button>
+      </div>
+    </div>
+  );
+};
+
+******************************
+
+The useMemo and useCallback Hooks are similar. The main difference is that useMemo returns a memoized value and useCallback returns a memoized function.
+
 Jya Ref/ DOM use thai e component ne uncontrolled component kevai
 
 **HOC 

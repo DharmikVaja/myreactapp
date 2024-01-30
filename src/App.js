@@ -11,12 +11,13 @@ import React, { useEffect, useState, useRef, createContext } from "react";
 // export const FirstName = createContext();
 // export const LastName = createContext();
 // import Ref from "./component/useRef/Ref";
-import FormComp from "./component/useForm/FormComp";
+// import FormComp from "./component/useForm/FormComp";
+import MemoComp from "./component/useMemo/MemoComp";
 
 function App() {
   return (
     <>
-      <FormComp />
+      <MemoComp />
     </>
   );
 }
