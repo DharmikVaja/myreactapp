@@ -22,7 +22,7 @@
 // ----------------------------------------
 
 **useState hook
- const state = useState();
+ <!-- const state = useState(); -->
   const [count, setCount] = useState(40);
 
   const IncNum = () => {
@@ -33,7 +33,7 @@
   function App() {
   const [count, setCount] = useState(0);
   const [multi, setMulti] = useState(0);
-  const [input,setInput] = useState("")
+  const [input, setInput] = useState("")
 
   return (
     <>
@@ -45,13 +45,13 @@
   );
 
 ************* useEfect ********************
-const [count, setCount] = useState(0);
+  const [count, setCount] = useState(0);
   const [multi, setMulti] = useState(0);
   const [input,setInput] = useState("")
   useEffect(() => {
     const multi = count * 2;
     setMulti(multi);
-  }, [count]);  //jyare jyare count argument change thay tyare useEffect run thase. jo argument no aapi hoi to ek j vaar run thay
+  }, [count]);  //jyare jyare count vali dependency change thay tyare useEffect run thase. jo dependency no aapi hoi to ek j vaar run thay
 
 
 ********************************************
@@ -228,9 +228,13 @@ const MemoComp = () => {
 
 The useMemo and useCallback Hooks are similar. The main difference is that useMemo returns a memoized value and useCallback returns a memoized function.
 
-Jya Ref/ DOM use thai e component ne uncontrolled component kevai
+Jya Ref/ DOM use thai e component ne Uncontrolled component kevai
 
 **HOC 
+Ek component bija component ne props tarike lai ne use kare. increase reusability
+
+*************************Controlled Component***************************
+Input element values which are controlled by React
 
 ************************userContext***************************
 import CompC from "./component/useContext.js/CompC";
@@ -302,3 +306,19 @@ const CompC = () => {
       </h1>
   );
 };
+
+***************Index.js******************
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+
+ReactDOM.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
+  document.getElementById("root")
+);
+
+reportWebVitals();

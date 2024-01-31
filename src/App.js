@@ -1,5 +1,5 @@
-import "./App.css";
 import React, { useEffect, useState, useRef, createContext } from "react";
+import "./App.css";
 // import "./component/form.css";
 // import Form from "./component/Form";
 // import Navbar from "./Navbar.js";
@@ -12,12 +12,13 @@ import React, { useEffect, useState, useRef, createContext } from "react";
 // export const LastName = createContext();
 // import Ref from "./component/useRef/Ref";
 // import FormComp from "./component/useForm/FormComp";
-import MemoComp from "./component/useMemo/MemoComp";
+// import MemoComp from "./component/useMemo/MemoComp";
+import CompApi1 from "./component/APIComp/CompApi1";
 
 function App() {
   return (
     <>
-      <MemoComp />
+      <CompApi1 />
     </>
   );
 }
