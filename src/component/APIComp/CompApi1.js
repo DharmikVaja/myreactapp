@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 
+// Using Fetch
 const CompApi1 = () => {
   let API = "http://hn.algolia.com/api/v1/search?query=html";
   const fetchAPIData = async (url) => {

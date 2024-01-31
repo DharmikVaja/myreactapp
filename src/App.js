@@ -13,12 +13,15 @@ import "./App.css";
 // import Ref from "./component/useRef/Ref";
 // import FormComp from "./component/useForm/FormComp";
 // import MemoComp from "./component/useMemo/MemoComp";
-import CompApi1 from "./component/APIComp/CompApi1";
+// import CompApi1 from "./component/APIComp/CompApi1";
+import CompApi2 from "./component/APIComp/CompAPI2";
+
+
 
 function App() {
   return (
     <>
-      <CompApi1 />
+      <CompApi2 />
     </>
   );
 }
