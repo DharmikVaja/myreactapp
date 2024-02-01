@@ -15,8 +15,7 @@ import "./App.css";
 // import MemoComp from "./component/useMemo/MemoComp";
 // import CompApi1 from "./component/APIComp/CompApi1";
 import CompApi2 from "./component/APIComp/CompAPI2";
-
-
+// import "../../../node_modules/bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
   return (

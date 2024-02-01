@@ -1,0 +1,21 @@
+.WholeData {
+  margin: 0 auto;
+  background-color: black;
+  color: rgb(205, 201, 201);
+  padding: 0 15rem;
+  /* box-sizing: border-box; */
+  text-align: center;
+  /* overflow-x: hidden; */
+}
+.heading {
+  text-align: center;
+  color: #fff;
+}
+.error-message {
+  color: #ac1f00;
+}
+
+.single-box {
+  border: 1px solid white;
+  padding: 0 auto;
+}

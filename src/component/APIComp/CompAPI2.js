@@ -1,30 +1,55 @@
-import React, { useEffect } from "react";
-import axios from "axios";
+import React, { useState, useEffect } from "react";
+import axios from "./axios.jsx";
+// import "./compAPI.css";
+import "./apiStyle1.css";
+// const API = "https://jsonplaceholder.typicode.com";
 
 const CompAPI2 = () => {
+  const [myData, setMyData] = useState([]);
+  const [isError, setIsError] = useState(null);
+
+  const fetchData = async () => {
+    try {
+      const response = await axios.get(`/posts`);
+      setMyData(response.data);
+      setIsError(null);
+    } catch (error) {
+      setIsError(error.message);
+    }
+  };
+  fetchData();
+
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const res = await axios.get(
-          "http://hn.algolia.com/api/v1/search?query=html"
-        );
-        console.log(res.data);
-      } catch (error) {
-        console.error("Fetching data error", error);
-      }
-    };
     fetchData();
   }, []);
 
   return (
     <>
-      <div>call API by axios promise </div>
+      <div className="bg-dark">
+        <div className="container">
+          <h2 className="heading">API Data will be shown here:</h2>
+          <div className="row">
+            {myData.map((post) => {
+              const { id, title, body } = post;
+              return (
+                <div
+                  key={id}
+                  className="col-lg-4 col-md-6 col-sm-12 single-box"
+                >
+                  <hr />
+                  <div className="apiContent text-white">
+                    <h4>{title.slice(0, 15)}</h4>
+                    <h6>{body.slice(0, 250)}</h6>
+                  </div>
+                </div>
+              );
+            })}
+            {isError && <div className="error-message">Error: {isError}</div>}
+          </div>
+        </div>
+      </div>
     </>
   );
 };
 
 export default CompAPI2;
-
-// Adv of axios over fetch,
-// 1) no need of json bcoz data is bydefault json formated.
-// 2) All type of http method can be called- GET, POST, DELETE, PATCH

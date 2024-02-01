@@ -322,3 +322,68 @@ ReactDOM.render(
 );
 
 reportWebVitals();
+
+****************(1) API call by fetch**************************
+import React, { useEffect } from "react";
+
+// Using Fetch
+const CompApi1 = () => {
+  let API = "http://hn.algolia.com/api/v1/search?query=html";
+  const fetchAPIData = async (url) => {
+    try {
+      const res = await fetch(url);
+      const data = await res.json();
+      console.log("data::::", data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  useEffect(() => {
+    fetchAPIData(API);
+  });
+  return (
+    <div>
+      <h3> Hello, Here you can have latest</h3>
+      <h4> Tech news </h4>
+    </div>
+  );
+};
+
+export default CompApi1;
+
+**************(2) API call by Axios promise****************
+const CompAPI2 = () => {
+  const [myData, setMyData] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(
+          "http://jsonplaceholder.typicode.com/posts"
+        );
+        setMyData(response.data);
+      } catch (error) {
+        console.error("Fetching data error", error);
+      }
+    };
+    fetchData();
+  }, []);
+
+  return (
+    <>
+      <div className="wholePage">
+        <h2>call API by axios promise </h2>
+      </div>
+      {myData.map((post) => {
+        const { id, title, body } = post;
+        return (
+          <div className="apiData" key={id}>
+            <h3>{title.slice(0, 12)}</h3>
+            <p>{body}</p>
+          </div>
+        );
+      })}
+    </>
+  );
+};
+
