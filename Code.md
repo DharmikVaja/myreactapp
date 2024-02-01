@@ -228,7 +228,8 @@ const MemoComp = () => {
 
 The useMemo and useCallback Hooks are similar. The main difference is that useMemo returns a memoized value and useCallback returns a memoized function.
 
-Jya Ref/ DOM use thai e component ne Uncontrolled component kevai
+**Control and Uncontrolled Component 
+useState na use thi thay, to Controlled natar Uncontrolled.
 
 **HOC 
 Ek component bija component ne props tarike lai ne use kare. increase reusability

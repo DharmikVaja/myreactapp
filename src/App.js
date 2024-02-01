@@ -1,5 +1,7 @@
-import React, { useEffect, useState, useRef, createContext } from "react";
+import React, { ReactDOM } from "react";
 import "./App.css";
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+
 // import "./component/form.css";
 // import Form from "./component/Form";
 // import Navbar from "./Navbar.js";
@@ -14,13 +16,30 @@ import "./App.css";
 // import FormComp from "./component/useForm/FormComp";
 // import MemoComp from "./component/useMemo/MemoComp";
 // import CompApi1 from "./component/APIComp/CompApi1";
-import CompApi2 from "./component/APIComp/CompAPI2";
-// import "../../../node_modules/bootstrap/dist/css/bootstrap.min.css";
+// import CompApi2 from "./component/APIComp/CompAPI2";
+import Home from "./component/RouterComp/Home";
+import About from "./component/RouterComp/About";
+import Contact from "./component/RouterComp/Contact.js";
+import NavBar from "./component/RouterComp/NavBarLink.js";
+import "/node_modules/bootstrap/dist/css/bootstrap.min.css";
+import User from "./component/RouterComp/User.js";
+import Error404 from "./component/RouterComp/Error404.js";
 
 function App() {
   return (
     <>
-      <CompApi2 />
+      <BrowserRouter>
+        <NavBar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/home" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/user/" element={<User />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/*" element={<Error404 />} />
+        </Routes>
+      </BrowserRouter>
     </>
   );
 }
