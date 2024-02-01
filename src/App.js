@@ -35,8 +35,7 @@ function App() {
           <Route path="/home" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/user/" element={<User />} />
-          <Route path="/contact" element={<Contact />} />
+          <Route path="/user/:name" element={<User />} />
           <Route path="/*" element={<Error404 />} />
         </Routes>
       </BrowserRouter>
